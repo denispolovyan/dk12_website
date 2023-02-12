@@ -14,11 +14,9 @@
         </div>
         <div class="list">
           <div class="list__body">
-            <div class="item">schedule</div>
-            <div class="item">deadlines</div>
-            <div class="item">tasks</div>
-            <div class="item">news</div>
-            <div class="item">ads</div>
+            <a class="item"><img class="item__img" src="../assets/socialMedias/inst.png" alt="inst"></a>
+            <a class="item"><img class="item__img" src="../assets/socialMedias/tg.png" alt="telegram"></a>
+				<a href="https://www.tiktok.com/@keoa.kpi" class="item"><img class="item__img" src="../assets/socialMedias/tiktok.png" alt="tiktok"></a>
           </div>
         </div>
       </div>
@@ -54,7 +52,10 @@ header {
   gap: 40px
 }
 .item {
-  font-size: 16px;
   display: flex;
+}
+.item__img {
+  width: 40px;
+  height: 40px;
 }
 </style>

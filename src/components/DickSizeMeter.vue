@@ -13,8 +13,6 @@
 </template>
 
 <style scoped>
-.container {
-}
 .size {
 	margin: 20px 0px 0px 0px;
 }
