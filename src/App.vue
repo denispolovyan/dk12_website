@@ -2,10 +2,7 @@
   <div class="wrapper">
     <header-navbar class="header-navbar" />
     <main class="main">
-      <section>
-        <dick-size-meter class="dick-size-meter" />
-        <working-schedule />
-      </section>
+      <working-schedule />
     </main>
     <footer-navbar class="footer-navbar" />
   </div>
@@ -14,12 +11,10 @@
 <script>
 import HeaderNavbar from "./components/HeaderNavbar.vue";
 import FooterNavbar from "./components/FooterNavbar.vue";
-import DickSizeMeter from "./components/DickSizeMeter.vue";
 import WorkingSchedule from "./components/WorkingSchedule";
 
 export default {
   components: {
-    DickSizeMeter,
     HeaderNavbar,
     FooterNavbar,
     WorkingSchedule,
@@ -43,11 +38,7 @@ export default {
 
 .main {
   flex: 1 1 auto;
-  height: 100vh;
-}
-
-.dick-size-meter {
-  display: none;
+  height: 100%;
 }
 
 .schedule {
