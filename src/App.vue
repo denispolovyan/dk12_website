@@ -41,6 +41,4 @@ export default {
   height: 100%;
 }
 
-.schedule {
-}
 </style>
