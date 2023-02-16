@@ -21,7 +21,11 @@
           Тиждень 2
         </div>
       </article>
-      <div class="days__navbar" @click="getDayofTheWeek">
+      <div
+        class="days__navbar"
+        @click="getDayofTheWeek"
+        v-if="clientWidth < 920"
+      >
         <div
           id="monday"
           class="days__item"
@@ -65,11 +69,15 @@
             bgbtn: days.friday,
           }"
         >
-          Пн
+          Пт
         </div>
       </div>
-      <div class="cards" v-if="showFirstWeek">
-        <div class="cards__body">
+      <div
+        class="cards"
+        v-if="showFirstWeek"
+        :class="{ jccenter: clientWidth < 920 }"
+      >
+        <div class="cards__body" v-if="days.monday || clientWidth > 919">
           <div class="card__title">Понеділок</div>
           <div class="card__column">
             <div @click="openModalWindow(), removeScroll()" class="card__text">
@@ -150,7 +158,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.tuesday || clientWidth > 919">
           <div class="card__title">Вівторок</div>
           <div class="card__column">
             <div class="card__text">
@@ -189,7 +197,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.wednesday || clientWidth > 919">
           <div class="card__title">Середа</div>
           <div class="card__column">
             <div class="card__text">
@@ -228,7 +236,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.thursday || clientWidth > 919">
           <div class="card__title">Четвер</div>
           <div class="card__column">
             <div class="card__text">
@@ -257,7 +265,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.friday || clientWidth > 919">
           <div class="card__title">П'ятниця</div>
           <div class="card__column">
             <div class="card__text"></div>
@@ -287,8 +295,12 @@
           </div>
         </div>
       </div>
-      <div class="cards" v-if="showSecondWeek">
-        <div class="cards__body">
+      <div
+        class="cards"
+        v-if="showSecondWeek"
+        :class="{ jccenter: clientWidth < 920 }"
+      >
+        <div class="cards__body" v-if="days.monday || clientWidth > 919">
           <div class="card__title">Понеділок</div>
           <div class="card__column">
             <div class="card__text">
@@ -327,7 +339,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.tuesday || clientWidth > 919">
           <div class="card__title">Вівторок</div>
           <div class="card__column">
             <div class="card__text">
@@ -356,7 +368,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.wednesday || clientWidth > 919">
           <div class="card__title">Середа</div>
           <div class="card__column">
             <div class="card__text">
@@ -395,7 +407,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.thursday || clientWidth > 919">
           <div class="card__title">Четвер</div>
           <div class="card__column">
             <div class="card__text">
@@ -424,7 +436,7 @@
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
-        <div class="cards__body">
+        <div class="cards__body" v-if="days.friday || clientWidth > 919">
           <div class="card__title">П'ятниця</div>
           <div class="card__column">
             <div class="card__text">
@@ -515,7 +527,7 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  padding: 40px 0px 0px 0px;
+  padding: 80px 0px 0px 0px;
 }
 .data__block {
   text-align: center;
@@ -534,7 +546,7 @@
 }
 .data__close {
   position: absolute;
-  top: 60px;
+  top: 20px;
   right: 20px;
   width: 3em;
   height: 3em;
@@ -589,12 +601,15 @@
 .card__activity_lab {
   background-color: #f0e68c;
 }
-/*===========*/
+/* dynamic classes */
 .bgbtn {
   background-color: #d3d3d3;
   transition-duration: 0.7s;
 }
-
+.jccenter {
+  justify-content: center;
+}
+/* days for < 920px  */
 .days__navbar {
   gap: 5px;
   display: flex;
@@ -607,6 +622,8 @@
   border: 1px solid #000;
   border-radius: 20px;
 }
+
+/* media  */
 
 @media (min-width: 2300px) {
   .cards {
@@ -623,12 +640,13 @@ export default {
       showSecondWeek: false,
       showModalWindow: false,
       days: {
-        monday: false,
+        monday: true,
         tuesday: false,
         wednesday: false,
         thursday: false,
         friday: false,
       },
+      clientWidth: 0,
     };
   },
   methods: {
@@ -660,7 +678,9 @@ export default {
       let element = e.target.id;
       this.days[element] = true;
     },
-
+    handleWindowResize() {
+      this.clientWidth = window.screen.width;
+    },
     removeScroll() {
       document.body.style.overflow = "hidden";
     },
@@ -670,6 +690,7 @@ export default {
   },
   mounted() {
     document.addEventListener("keydown", this.handleKeydown);
+    window.addEventListener("resize", this.handleWindowResize);
   },
 };
 </script>
