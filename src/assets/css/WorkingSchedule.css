@@ -1,0 +1,232 @@
+
+.schedule {
+  font-family: "Ubuntu", sans-serif;
+  margin: 40px 0px;
+  font-size: 18px;
+}
+.article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 40px 0px;
+}
+.cards {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+}
+.cards__body {
+  width: 430px;
+  background: #f0f8ff;
+  border: 2px solid #000;
+  border-radius: 15px;
+}
+.card__title {
+  font-weight: 600;
+  font-size: 22px;
+  display: inline-block;
+  border-radius: 15px;
+  margin: 20px 20px 40px 20px;
+}
+.card__column {
+  padding: 10px 10px 0px 10px;
+  margin: 0px 10px 40px 10px;
+  border-bottom: 1px dotted #000;
+}
+.card__column:hover {
+  transition-duration: 0.6s;
+  background-color: #ffe4b5;
+  border-radius: 20px 20px 0px 0px;
+}
+.card__text {
+  position: relative;
+  height: 150px;
+}
+.data {
+  z-index: 50;
+  background-color: #e0ffff;
+  position: fixed;
+  top: 100px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 80px 0px 0px 0px;
+}
+.data__block {
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0px 0px 30px 0px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.data__body {
+  padding: 20px;
+  width: 450px;
+  border-radius: 20px;
+  display: inline-block;
+  background-color: #eee8aa;
+}
+.data__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 3em;
+  height: 3em;
+  background-color: #c0c0c0;
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
+}
+.data__close:hover {
+  transition-duration: 0.7s;
+  background-color: #808080;
+}
+
+.card__text p {
+  margin: 0px 0px 10px 0px;
+  line-height: 30px;
+}
+.card__text p span {
+  font-size: 12px;
+}
+.card__subtitle {
+  text-align: right;
+  margin: 0px 0px 5px 0px;
+}
+/* lec / prac / lab*/
+.card__activity {
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+.card__activity_practice {
+  background-color: #7fffd4;
+}
+.card__activity_lecture {
+  background-color: #ffa07a;
+}
+.card__activity_lab {
+  background-color: #f0e68c;
+}
+/* dynamic classes */
+.bgbtn {
+  background-color: #d3d3d3;
+  transition-duration: 0.7s;
+}
+.jccenter {
+  justify-content: center;
+}
+.todoBorder {
+  border: 2px solid #000;
+}
+/* days for < 920px  */
+.days__navbar {
+  gap: 5px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 0px auto 40px auto;
+}
+.days__item {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+/* todo list  */
+.todo-list {
+  top: 100px;
+  left: 20px;
+  position: absolute;
+  background-color: #f5deb3;
+  border-radius: 20px;
+}
+.todo-list__body {
+  padding: 20px;
+}
+.todo-list__title {
+  margin: 0px 0px 40px 0px;
+}
+.todo-list__title input {
+  font-size: 18px;
+  padding: 0px 20px;
+  border-radius: 20px;
+  width: 300px;
+  height: 40px;
+}
+.todo__list__text textarea {
+  font-size: 18px;
+  padding: 20px 20px;
+  border-radius: 20px;
+  width: 300px;
+  height: 150px;
+  resize: none;
+}
+.todo-list__button {
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 20px 0px 0px 0px;
+}
+.todo-list__button_submit {
+  background-color: #f0fff0;
+  margin: 0px 20px 0px 0px;
+}
+.todo-list__button_reset {
+  background-color: #fff5ee;
+}
+.todo-list__button_submit:hover {
+  transition-duration: 0.7s;
+  background-color: #98fb98;
+  margin: 0px 20px 0px 0px;
+}
+.todo-list__button_reset:hover {
+  transition-duration: 0.7s;
+  background-color: #ffa07a;
+}
+.card__container_todo {
+  position: absolute;
+  left: 20px;
+  top: 500px;
+  width: 340px;
+}
+
+/* todo card  */
+.card__item_todo {
+  padding: 20px;
+  background-color: #f5deb3;
+  border-radius: 20px;
+  margin: 0px 0px 20px 0px;
+}
+
+.card__title_todo {
+  padding: 10px 15px;
+  background-color: #fff;
+  margin: 0px 0px 20px 0px;
+  border-radius: 20px;
+}
+.card__text_todo {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  line-height: 20px;
+}
+
+/* media  */
+
+@media (min-width: 2300px) {
+  .cards {
+    justify-content: space-between;
+  }
+}
