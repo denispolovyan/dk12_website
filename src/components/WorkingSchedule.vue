@@ -65,39 +65,7 @@
                   @click="addScroll"
                   class="data__close"
                 ></div>
-                <div class="todo-list">
-                  <div class="todo-list__body">
-                    <div class="todo-list__title">
-                      <input
-                        tabindex="1"
-                        id="taskTitle"
-                        type="text"
-                        placeholder="Title of task"
-                        maxlength="20"
-                      />
-                    </div>
-                    <div class="todo__list__text">
-                      <textarea
-                        tabindex="2"
-                        id="taskBody"
-                        placeholder="Body of task"
-                        maxlength="100"
-                      ></textarea>
-                    </div>
-                    <button
-                      class="todo-list__button todo-list__button_submit"
-                      @click="addTodo"
-                    >
-                      Submit
-                    </button>
-                    <button
-                      class="todo-list__button todo-list__button_reset"
-                      @click="resetForm"
-                    >
-                      Reset
-                    </button>
-                  </div>
-                </div>
+                <todo-list-form @addTodo="addTodo" :index="subjectIndex" />
                 <div class="card__container_todo">
                   <div
                     class="card__item_todo"
@@ -144,7 +112,9 @@
               </p>
               <p>
                 Розумні міста
-                <span class="card__activity card__activity_practice">прак </span>
+                <span class="card__activity card__activity_practice"
+                  >прак
+                </span>
               </p>
               <p>
                 Психологія
@@ -178,39 +148,7 @@
                   @click="addScroll"
                   class="data__close"
                 ></div>
-                <div class="todo-list">
-                  <div class="todo-list__body">
-                    <div class="todo-list__title">
-                      <input
-                        tabindex="1"
-                        id="taskTitle"
-                        type="text"
-                        placeholder="Title of task"
-                        maxlength="20"
-                      />
-                    </div>
-                    <div class="todo__list__text">
-                      <textarea
-                        tabindex="2"
-                        id="taskBody"
-                        placeholder="Body of task"
-                        maxlength="100"
-                      ></textarea>
-                    </div>
-                    <button
-                      class="todo-list__button todo-list__button_submit"
-                      @click="addTodo"
-                    >
-                      Submit
-                    </button>
-                    <button
-                      class="todo-list__button todo-list__button_reset"
-                      @click="resetForm"
-                    >
-                      Reset
-                    </button>
-                  </div>
-                </div>
+                <todo-list-form @addTodo="addTodo" :index="subjectIndex" />
                 <div class="card__container_todo">
                   <div
                     class="card__item_todo"
@@ -579,11 +517,13 @@
 <script>
 import WeekNavbar from "./WeekNavbar.vue";
 import DayNavbar from "./DayNavbar.vue";
+import TodoListForm from "./TodoListForm.vue";
 
 export default {
   components: {
     WeekNavbar,
     DayNavbar,
+    TodoListForm,
   },
 
   data: () => {
@@ -631,22 +571,9 @@ export default {
     addScroll() {
       document.body.style.overflow = "scroll";
     },
-    resetForm() {
-      document.getElementById("taskBody").value = "";
-      document.getElementById("taskTitle").value = "";
-    },
-    addTodo() {
-      const title = document.getElementById("taskTitle").value;
-      const body = document.getElementById("taskBody").value;
-      if (title && body) {
-        const currentTodo = {
-          name: title,
-          text: body,
-          id: this.subjectIndex,
-        };
-        this.todoList = [...this.todoList, currentTodo];
-      }
-      this.resetForm();
+
+    addTodo(currentTodo) {
+      this.todoList = [...this.todoList, currentTodo];
     },
     setSubjectId(idx) {
       this.subjectIndex = idx;
