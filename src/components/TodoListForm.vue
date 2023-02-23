@@ -1,7 +1,7 @@
 <template>
   <div class="todo-list">
     <div class="todo-list__body">
-      <div class="todo-list__title">
+      <div class="todo-list__title" @click="showWarningMessage = false">
         <input
           autocomplete="off"
           tabindex="1"
@@ -11,7 +11,10 @@
           maxlength="20"
         />
       </div>
-      <div class="todo__list__text">
+      <div v-if="showWarningMessage" style="color: red">
+        <p>max 2 todo</p>
+      </div>
+      <div class="todo-list__text" @click="showWarningMessage = false">
         <textarea
           tabindex="2"
           id="taskBody"
@@ -38,7 +41,14 @@
 <script>
 export default {
   props: {
-    index: Number,
+    index: String,
+    filteredTodoList: Number,
+  },
+
+  data: () => {
+    return {
+      showWarningMessage: false,
+    };
   },
 
   methods: {
@@ -47,17 +57,21 @@ export default {
       document.getElementById("taskTitle").value = "";
     },
     addTodo() {
-      const title = document.getElementById("taskTitle").value;
-      const body = document.getElementById("taskBody").value;
-      if (title && body) {
-        const currentTodo = {
-          name: title,
-          text: body,
-          id: this.index,
-        };
-        this.$emit("addTodo", currentTodo);
+      if (this.filteredTodoList < 2) {
+        const title = document.getElementById("taskTitle").value;
+        const body = document.getElementById("taskBody").value;
+        if (title && body) {
+          const currentTodo = {
+            name: title,
+            text: body,
+            id: this.index,
+          };
+          this.$emit("addTodo", currentTodo);
+        }
+        this.resetForm();
+      } else {
+        this.showWarningMessage = true;
       }
-      this.resetForm();
     },
   },
 };
@@ -75,8 +89,8 @@ export default {
 .todo-list__body {
   padding: 20px;
 }
-.todo-list__title {
-  margin: 0px 0px 40px 0px;
+.todo-list__text {
+  margin: 40px 0px 0px 0px;
 }
 .todo-list__title input {
   font-size: 18px;
@@ -85,7 +99,7 @@ export default {
   width: 300px;
   height: 40px;
 }
-.todo__list__text textarea {
+.todo-list__text textarea {
   font-size: 18px;
   padding: 20px 20px;
   border-radius: 20px;

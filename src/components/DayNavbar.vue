@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="days__navbar"
-    @click="getDayofTheWeek"
-    v-if="clientWidth < 920"
-  >
+  <div class="days__navbar" @click="getDayofTheWeek" v-if="clientWidth < 920">
     <div
       id="monday"
       class="days__item"
@@ -73,6 +69,12 @@
 
 <script>
 export default {
+  props: {
+    clientWidth: {
+      type: Number,
+      required: false,
+    },
+  },
 
   data: () => {
     return {
@@ -83,7 +85,6 @@ export default {
         thursday: false,
         friday: false,
       },
-		clientWidth: false
     };
   },
   methods: {
@@ -93,18 +94,8 @@ export default {
       }
       let element = e.target.id;
       this.days[element] = true;
-		this.$emit("setDaysList", this.days)
+      this.$emit("setDaysList", this.days);
     },
-    getWindowSize() {
-      this.clientWidth = window.screen.width;
-    },
-  },
-  mounted() {
-    window.addEventListener("resize", this.getWindowSize);
-    this.getWindowSize();
-  },
-  beforeUnmount() {
-    window.removeEventListener("resize", this.getWindowSize);
   },
 };
 </script>

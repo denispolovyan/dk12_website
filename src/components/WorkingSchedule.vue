@@ -5,7 +5,7 @@
         @switchToFirstWeek="(showFirstWeek = true), (showSecondWeek = false)"
         @switchToSecondWeek="(showFirstWeek = false), (showSecondWeek = true)"
       />
-      <day-navbar @setDaysList="setDaysList" />
+      <day-navbar @setDaysList="setDaysList" :clientWidth="clientWidth" />
       <div
         class="cards"
         v-if="showFirstWeek"
@@ -16,9 +16,9 @@
           <div class="card__column">
             <div
               @click="
-                openModalWindow('first'),
+                openModalWindow(),
                   removeScroll(),
-                  setSubjectId(1),
+                  setSubjectId('first'),
                   filterTodos()
               "
               class="card__text"
@@ -61,10 +61,14 @@
                 </div>
                 <close-modal-window
                   @click="addScroll"
-                  @click.stop="closeModalWindow('first')"
+                  @click.stop="closeModalWindow"
                   v-if="showModalWindow.first"
                 />
-                <todo-list-form @addTodo="addTodo" :index="subjectIndex" />
+                <todo-list-form
+                  @addTodo="addTodo"
+                  :index="subjectIndex"
+                  :filteredTodoList="filteredTodoList.length"
+                />
                 <todo-list-card
                   :filteredTodoList="filteredTodoList"
                   @deleteTodo="deleteTodo"
@@ -77,9 +81,9 @@
             <div
               class="card__text"
               @click="
-                openModalWindow('second'),
+                openModalWindow(),
                   removeScroll(),
-                  setSubjectId(2),
+                  setSubjectId('second'),
                   filterTodos()
               "
             >
@@ -119,13 +123,16 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <div
-                  v-if="showModalWindow.second"
-                  @click.stop="closeModalWindow('second')"
+                <close-modal-window
                   @click="addScroll"
-                  class="data__close"
-                ></div>
-                <todo-list-form @addTodo="addTodo" :index="subjectIndex" />
+                  @click.stop="closeModalWindow"
+                  v-if="showModalWindow.second"
+                />
+                <todo-list-form
+                  @addTodo="addTodo"
+                  :index="subjectIndex"
+                  :filteredTodoList="filteredTodoList.length"
+                />
                 <todo-list-card
                   :filteredTodoList="filteredTodoList"
                   @deleteTodo="deleteTodo"
@@ -503,17 +510,18 @@ export default {
       todoList: [],
       filteredTodoList: [],
       subjectIndex: "",
-      selectedTodo: null,
-      clientWidth: "",
+      clientWidth: null,
     };
   },
 
   methods: {
-    openModalWindow(index) {
-      this.showModalWindow[index] = true;
+    openModalWindow() {
+      setTimeout(() => {
+        this.showModalWindow[this.subjectIndex] = true;
+      }, 10);
     },
-    closeModalWindow(index) {
-      this.showModalWindow[index] = false;
+    closeModalWindow() {
+      this.showModalWindow[this.subjectIndex] = false;
     },
     getWindowSize() {
       this.clientWidth = window.screen.width;
@@ -527,6 +535,7 @@ export default {
 
     addTodo(currentTodo) {
       this.todoList = [...this.todoList, currentTodo];
+		console.log('done');
     },
     setSubjectId(idx) {
       this.subjectIndex = idx;
@@ -534,19 +543,25 @@ export default {
     deleteTodo(elementToDelete) {
       this.todoList = this.todoList.filter((t) => t != elementToDelete);
     },
-    //   select(todo) {
-    //     this.selectedTodo = todo;
-    //   },
     setDaysList(list) {
       this.days = list;
     },
     filterTodos() {
-      this.filteredTodoList = this.todoList.filter(
-        (t) => t.id == this.subjectIndex
-      );
+      setTimeout(() => {
+        this.filteredTodoList = this.todoList.filter(
+          (t) => t.id == this.subjectIndex
+        );
+      }, 20);
+      // console.log(this.filteredTodoList);
     },
     returnTodos() {
       return this.todoList;
+    },
+    handleKeydown(e) {
+      if (e.key === "Escape") {
+        this.closeModalWindow();
+        this.addScroll();
+      }
     },
   },
   watch: {

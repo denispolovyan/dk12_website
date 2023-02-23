@@ -1,16 +1,6 @@
 <template>
-  <div class="data__close" @click="addScroll"></div>
+  <div class="data__close"></div>
 </template>
-
-<script>
-export default {
-  methods: {
-    addScroll() {
-      document.body.style.overflow = "scroll";
-    },
-  },
-};
-</script>
 
 <style scoped>
 .data__close {
