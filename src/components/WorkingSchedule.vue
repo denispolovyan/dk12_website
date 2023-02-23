@@ -59,39 +59,16 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <div
-                  v-if="showModalWindow.first"
-                  @click.stop="closeModalWindow('first')"
+                <close-modal-window
                   @click="addScroll"
-                  class="data__close"
-                ></div>
+                  @click.stop="closeModalWindow('first')"
+                  v-if="showModalWindow.first"
+                />
                 <todo-list-form @addTodo="addTodo" :index="subjectIndex" />
-                <div class="card__container_todo">
-                  <div
-                    class="card__item_todo"
-                    v-for="todo in filteredTodoList"
-                    v-bind:key="todo"
-                    v-on:click="select(todo)"
-                  >
-                    <div class="card__body">
-                      <div class="card__title_todo">{{ todo.name }}</div>
-                      <div class="card__text_todo">
-                        {{ todo.text }}
-                      </div>
-                      <button
-                        class="todo-list__button todo-list__button_submit"
-                      >
-                        Overline
-                      </button>
-                      <button
-                        class="todo-list__button todo-list__button_reset"
-                        @click.stop="deleteTodo(todo)"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <todo-list-card
+                  :filteredTodoList="filteredTodoList"
+                  @deleteTodo="deleteTodo"
+                />
               </div>
             </div>
             <div class="card__subtitle">8:30</div>
@@ -149,32 +126,10 @@
                   class="data__close"
                 ></div>
                 <todo-list-form @addTodo="addTodo" :index="subjectIndex" />
-                <div class="card__container_todo">
-                  <div
-                    class="card__item_todo"
-                    v-for="todo in filteredTodoList"
-                    v-bind:key="todo"
-                    v-on:click="select(todo)"
-                  >
-                    <div class="card__body">
-                      <div class="card__title_todo">{{ todo.name }}</div>
-                      <div class="card__text_todo">
-                        {{ todo.text }}
-                      </div>
-                      <button
-                        class="todo-list__button todo-list__button_submit"
-                      >
-                        Overline
-                      </button>
-                      <button
-                        class="todo-list__button todo-list__button_reset"
-                        @click.stop="deleteTodo(todo)"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <todo-list-card
+                  :filteredTodoList="filteredTodoList"
+                  @deleteTodo="deleteTodo"
+                />
               </div>
             </div>
             <div class="card__subtitle">10:25</div>
@@ -518,12 +473,16 @@
 import WeekNavbar from "./WeekNavbar.vue";
 import DayNavbar from "./DayNavbar.vue";
 import TodoListForm from "./TodoListForm.vue";
+import TodoListCard from "./TodoListCard.vue";
+import CloseModalWindow from "./CloseModalWindow.vue";
 
 export default {
   components: {
     WeekNavbar,
     DayNavbar,
     TodoListForm,
+    TodoListCard,
+    CloseModalWindow,
   },
 
   data: () => {
@@ -556,12 +515,6 @@ export default {
     closeModalWindow(index) {
       this.showModalWindow[index] = false;
     },
-    handleKeydown(e) {
-      if (e.key === "Escape") {
-        this.closeModalWindow();
-        this.addScroll();
-      }
-    },
     getWindowSize() {
       this.clientWidth = window.screen.width;
     },
@@ -579,14 +532,11 @@ export default {
       this.subjectIndex = idx;
     },
     deleteTodo(elementToDelete) {
-      if (this.selectedTodo == elementToDelete) {
-        this.select(null);
-      }
       this.todoList = this.todoList.filter((t) => t != elementToDelete);
     },
-    select(todo) {
-      this.selectedTodo = todo;
-    },
+    //   select(todo) {
+    //     this.selectedTodo = todo;
+    //   },
     setDaysList(list) {
       this.days = list;
     },

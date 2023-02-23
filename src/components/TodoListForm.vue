@@ -3,6 +3,7 @@
     <div class="todo-list__body">
       <div class="todo-list__title">
         <input
+          autocomplete="off"
           tabindex="1"
           id="taskTitle"
           type="text"
@@ -37,7 +38,7 @@
 <script>
 export default {
   props: {
-    index: Number
+    index: Number,
   },
 
   methods: {
