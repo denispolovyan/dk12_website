@@ -1,27 +1,30 @@
 <template>
-  <div class="card__container_todo">
+  <div>
     <todo-list-form
       @addTodo="addTodo"
       :index="index"
       :filteredTodoList="filteredTodoList"
+      class="todo-list__form"
     />
-    <div
-      class="card__item_todo"
-      v-for="todo in filteredTodoList"
-      v-bind:key="todo"
-      v-on:click="select(todo)"
-    >
-      <div class="card__body">
-        <div class="card__title_todo">{{ todo.name }}</div>
-        <div class="card__text_todo">
-          {{ todo.text }}
+    <div class="card__container_todo">
+      <div
+        class="card__item_todo"
+        v-for="todo in filteredTodoList"
+        v-bind:key="todo"
+        v-on:click="select(todo)"
+      >
+        <div class="card__body">
+          <div class="card__title_todo">{{ todo.name }}</div>
+          <div class="card__text_todo">
+            {{ todo.text }}
+          </div>
+          <button
+            class="todo-list__button todo-list__button_reset"
+            @click.stop="deleteTodo(todo)"
+          >
+            Delete
+          </button>
         </div>
-        <button
-          class="todo-list__button todo-list__button_reset"
-          @click.stop="deleteTodo(todo)"
-        >
-          Delete
-        </button>
       </div>
     </div>
   </div>
@@ -66,13 +69,21 @@ export default {
 </script>
 
 <style scoped>
+/* todo-list form  */
+.todo-list__form {
+  position: absolute;
+  top: 40px;
+  left: 600px;
+}
 /* container  */
 .card__container_todo {
   position: absolute;
-  max-width: 700px;
+  max-width: 1500px;
+  max-height: 400px;
   display: flex;
   left: 600px;
-  top: 100px;
+  top: 420px;
+  bottom: 0px;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -80,22 +91,20 @@ export default {
   width: 340px;
   height: 340px;
   padding: 20px;
-  background-color: #f5deb3;
   border-radius: 20px;
-  margin: 0px 0px 20px 0px;
+  background-color: #d3cfff;
+  border: 1px solid #000;
 }
 .todo-list__button {
   font-size: 18px;
   padding: 10px 15px;
   border-radius: 20px;
   margin: 20px 0px 0px 0px;
+  background-color: #ff8155;
 }
 .todo-list__button_submit {
-  background-color: #f0fff0;
+  background-color: #ff8155;
   margin: 0px 20px 0px 0px;
-}
-.todo-list__button_reset {
-  background-color: #fff5ee;
 }
 .todo-list__button_submit:hover {
   transition-duration: 0.7s;
@@ -124,9 +133,14 @@ export default {
 @media (max-width: 960px) {
   .card__container_todo {
     position: static;
-    max-width: 100%; 
-padding: 0px 15%;
+    max-width: 100%;
+    padding: 0px 15%;
     justify-content: center;
+  }
+  .todo-list__form {
+    position: static;
+    max-width: 340px;
+    margin: 0px auto 20px auto;
   }
 }
 </style>

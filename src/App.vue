@@ -1,10 +1,14 @@
 <template>
   <div class="wrapper">
-    <header-navbar class="header-navbar" />
+    <header>
+      <header-navbar class="header-navbar" />
+    </header>
     <main class="main">
       <working-schedule />
     </main>
-    <footer-navbar class="footer-navbar" />
+    <footer>
+      <footer-navbar class="footer-navbar" />
+    </footer>
   </div>
 </template>
 
@@ -24,16 +28,17 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-@import url("./app.css");
+@import url("./assets/css/nullstyle.css");
 
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+.wrapper{
+	background-color: #f3f3f3;
+}
+/* container with padding for all components */
 .container {
   padding: 0px 20px;
-}
-
-.wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .main {
@@ -41,4 +46,11 @@ export default {
   height: 100%;
 }
 
+header {
+  background-color: #615faa;
+}
+
+footer {
+  background-color: #615faa;
+}
 </style>

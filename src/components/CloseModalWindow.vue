@@ -4,12 +4,12 @@
 
 <style scoped>
 .data__close {
-  position: absolute;
-  top: 20px;
+  position: fixed;
+  top: 22.5px;
   right: 20px;
-  width: 3em;
-  height: 3em;
-  background-color: #c0c0c0;
+  width: 55px;
+  height: 55px;
+  background-color: #d3cfff;
   clip-path: polygon(
     20% 0%,
     0% 20%,
@@ -27,6 +27,6 @@
 }
 .data__close:hover {
   transition-duration: 0.7s;
-  background-color: #808080;
+  background-color: #f3f3f3;
 }
 </style>

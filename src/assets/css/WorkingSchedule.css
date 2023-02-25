@@ -16,7 +16,8 @@
 }
 .cards__body {
   width: 430px;
-  background: #f0f8ff;
+  /* background: #f8efed; */
+    background: #f3f0ff;
   border: 2px solid #000;
   border-radius: 15px;
 }
@@ -34,7 +35,8 @@
 }
 .card__column:hover {
   transition-duration: 0.6s;
-  background-color: #ffe4b5;
+  /* background-color: #ccc5fc; */
+    background-color: #d3cfff;
   border-radius: 20px 20px 0px 0px;
 }
 .card__text {
@@ -42,21 +44,21 @@
 }
 .data {
   z-index: 50;
-  background-color: #e0ffff;
+  background-color: #f3f3f3;
   position: absolute;
-  top: 0px;
+  top: 100px;
   left: 0px;
+  bottom: 0px;
   width: 100%;
-  height: 100%;
-  padding: 80px 0px 0px 0px;
-  overflow: scroll;
+  padding: 20px 0px 0px 0px;
+  overflow-y: scroll;
 }
 .data__block {
   text-align: left;
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   margin: 0px 0px 30px 0px;
-  line-height: 30px;
+  line-height: 0px;
   font-size: 20px;
 }
 .data__body {
@@ -65,7 +67,11 @@
   width: 450px;
   border-radius: 20px;
   display: inline-block;
-  background-color: #eee8aa;
+  background-color: #f3f0ff;
+  border: 1px solid #000;
+}
+.data__body p:last-child{
+  border-radius: 20px;
 }
 
 .card__text p {
@@ -85,13 +91,13 @@
   border-radius: 15px;
 }
 .card__activity_practice {
-  background-color: #7fffd4;
+  background-color: #ff8155;
 }
 .card__activity_lecture {
-  background-color: #ffa07a;
+  background-color: #ffcc4e;
 }
 .card__activity_lab {
-  background-color: #f0e68c;
+  background-color: #ec6077;
 }
 /* dynamic classes */
 .bgbtn {

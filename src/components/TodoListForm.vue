@@ -86,9 +86,10 @@ export default {
 <style scoped>
 /* todo list  */
 .todo-list {
-  position: absolute;
-  background-color: #f5deb3;
+	position: absolute;
+  background-color: #D3CFFF;
   border-radius: 20px;
+  border: 1px solid #000;
 }
 .todo-list__body {
   padding: 20px;
@@ -118,11 +119,11 @@ export default {
   margin: 20px 0px 0px 0px;
 }
 .todo-list__button_submit {
-  background-color: #f0fff0;
+  background-color: #ffcc4e;
   margin: 0px 20px 0px 0px;
 }
 .todo-list__button_reset {
-  background-color: #fff5ee;
+	background-color: #ec6077;
 }
 .todo-list__button_submit:hover {
   transition-duration: 0.7s;

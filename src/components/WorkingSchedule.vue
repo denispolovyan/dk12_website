@@ -16,7 +16,8 @@
           <div class="card__column">
             <div
               @click="
-                openModalWindow(),
+                scroollToTheTop(),
+                  openModalWindow(),
                   removeScroll(),
                   setSubjectId('first'),
                   filterTodos()
@@ -69,7 +70,7 @@
                   @deleteTodo="deleteTodo"
                   :index="subjectIndex"
                   :filteredTodoList="filteredTodoList"
-						:clientWidth="clientWidth"
+                  :clientWidth="clientWidth"
                 />
               </div>
             </div>
@@ -79,7 +80,8 @@
             <div
               class="card__text"
               @click="
-                openModalWindow(),
+                scroollToTheTop(),
+                  openModalWindow(),
                   removeScroll(),
                   setSubjectId('second'),
                   filterTodos()
@@ -138,11 +140,41 @@
             <div class="card__subtitle">10:25</div>
           </div>
           <div class="card__column">
-            <div class="card__text">
+            <div
+              class="card__text"
+              @click="
+                scroollToTheTop(),
+                  openModalWindow(),
+                  removeScroll(),
+                  setSubjectId('third'),
+                  filterTodos()
+              "
+            >
               <p>
                 Соціальна психологія
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
+              <div v-if="showModalWindow.third" class="data">
+                <div class="data__block">
+                  <div class="data__body">
+                    <p>Соціальна психологія</p>
+                    <p>Кононець Марія Олександрівна</p>
+                    <p><a href="">Посилання (прак)</a></p>
+                  </div>
+                </div>
+                <close-modal-window
+                  @click="addScroll"
+                  @click.stop="closeModalWindow"
+                  v-if="showModalWindow.third"
+                />
+                <todo-list-card
+                  @addTodo="addTodo"
+                  :index="subjectIndex"
+                  :filteredTodoListLength="filteredTodoList.length"
+                  :filteredTodoList="filteredTodoList"
+                  @deleteTodo="deleteTodo"
+                />
+              </div>
             </div>
             <div class="card__subtitle">12:20</div>
           </div>
@@ -507,6 +539,11 @@ export default {
       showModalWindow: {
         first: false,
         second: false,
+        third: false,
+        fourth: false,
+        fifth: false,
+        sixth: false,
+        seventh: false,
       },
       days: {
         monday: true,
@@ -568,6 +605,9 @@ export default {
         this.closeModalWindow();
         this.addScroll();
       }
+    },
+    scroollToTheTop() {
+      window.scrollTo(0, 0);
     },
   },
 

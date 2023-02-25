@@ -1,5 +1,4 @@
 <template>
-  <header>
     <div class="container">
       <div class="header__body">
         <div class="logo">
@@ -21,15 +20,9 @@
         </div>
       </div>
     </div>
-  </header>
 </template>
 
 <style>
-header {
-  background-color: #5F9EA0;
-   background-color: #C0C0C0;
-  font-family: "Ubuntu", sans-serif;
-}
 .header__body {
   height: 100px;
   display: flex;

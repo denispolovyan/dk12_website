@@ -34,7 +34,7 @@
   padding: 10px 20px;
 }
 .bgbtn {
-  background-color: #d3d3d3;
+  background-color: #d3cfff;
   transition-duration: 0.7s;
 }
 </style>
