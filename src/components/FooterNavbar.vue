@@ -14,9 +14,9 @@
         </div>
         <div class="list">
           <div class="list__body">
-            <a class="item"><img class="item__img" src="../assets/socialMedias/inst.png" alt="inst"></a>
-            <a class="item"><img class="item__img" src="../assets/socialMedias/tg.png" alt="telegram"></a>
-				<a href="https://www.tiktok.com/@keoa.kpi" class="item"><img class="item__img" src="../assets/socialMedias/tiktok.png" alt="tiktok"></a>
+            <a target="_blank" href="https://www.instagram.com/denis_qb_/?next=%2F" class="item"><img class="item__img" src="../assets/socialMedias/inst.png" alt="inst"></a>
+            <a target="_blank" href="https://t.me/denisqb" class="item"><img class="item__img" src="../assets/socialMedias/tg.png" alt="telegram"></a>
+				<a target="_blank" href="https://www.tiktok.com/@keoa.kpi" class="item"><img class="item__img" src="../assets/socialMedias/tiktok.png" alt="tiktok"></a>
           </div>
         </div>
       </div>

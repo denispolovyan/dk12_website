@@ -1,5 +1,10 @@
 <template>
   <div class="card__container_todo">
+    <todo-list-form
+      @addTodo="addTodo"
+      :index="index"
+      :filteredTodoList="filteredTodoList"
+    />
     <div
       class="card__item_todo"
       v-for="todo in filteredTodoList"
@@ -11,9 +16,6 @@
         <div class="card__text_todo">
           {{ todo.text }}
         </div>
-        <button class="todo-list__button todo-list__button_submit">
-          Overline
-        </button>
         <button
           class="todo-list__button todo-list__button_reset"
           @click.stop="deleteTodo(todo)"
@@ -26,10 +28,21 @@
 </template>
 
 <script>
+import TodoListForm from "./TodoListForm.vue";
+
 export default {
+  components: {
+    TodoListForm,
+  },
   props: {
     filteredTodoList: Array,
+    index: String,
+    clientWidth: {
+      type: Number,
+      required: false,
+    },
   },
+
   data: () => {
     return {
       selectedTodo: null,
@@ -40,16 +53,37 @@ export default {
       if (this.selectedTodo == elementToDelete) {
         this.select(null);
       }
-		this.$emit("deleteTodo", elementToDelete)
+      this.$emit("deleteTodo", elementToDelete);
     },
     select(todo) {
       this.selectedTodo = todo;
+    },
+    addTodo(currentTodo) {
+      this.$emit("addTodo", currentTodo);
     },
   },
 };
 </script>
 
 <style scoped>
+/* container  */
+.card__container_todo {
+  position: absolute;
+  max-width: 700px;
+  display: flex;
+  left: 600px;
+  top: 100px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card__item_todo {
+  width: 340px;
+  height: 340px;
+  padding: 20px;
+  background-color: #f5deb3;
+  border-radius: 20px;
+  margin: 0px 0px 20px 0px;
+}
 .todo-list__button {
   font-size: 18px;
   padding: 10px 15px;
@@ -72,25 +106,11 @@ export default {
   transition-duration: 0.7s;
   background-color: #ffa07a;
 }
-.card__container_todo {
-  position: absolute;
-  left: 20px;
-  top: 500px;
-  width: 340px;
-}
-
-/* todo card  */
-.card__item_todo {
-  padding: 20px;
-  background-color: #f5deb3;
-  border-radius: 20px;
-  margin: 0px 0px 20px 0px;
-}
 
 .card__title_todo {
   padding: 10px 15px;
   background-color: #fff;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 40px 0px;
   border-radius: 20px;
 }
 .card__text_todo {
@@ -98,5 +118,15 @@ export default {
   padding: 20px;
   border-radius: 20px;
   line-height: 20px;
+  height: 150px;
+}
+
+@media (max-width: 960px) {
+  .card__container_todo {
+    position: static;
+    max-width: 100%; 
+padding: 0px 15%;
+    justify-content: center;
+  }
 }
 </style>

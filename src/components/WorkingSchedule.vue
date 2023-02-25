@@ -64,14 +64,12 @@
                   @click.stop="closeModalWindow"
                   v-if="showModalWindow.first"
                 />
-                <todo-list-form
-                  @addTodo="addTodo"
-                  :index="subjectIndex"
-                  :filteredTodoList="filteredTodoList.length"
-                />
                 <todo-list-card
-                  :filteredTodoList="filteredTodoList"
+                  @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
+                  :index="subjectIndex"
+                  :filteredTodoList="filteredTodoList"
+						:clientWidth="clientWidth"
                 />
               </div>
             </div>
@@ -128,12 +126,10 @@
                   @click.stop="closeModalWindow"
                   v-if="showModalWindow.second"
                 />
-                <todo-list-form
+                <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
-                  :filteredTodoList="filteredTodoList.length"
-                />
-                <todo-list-card
+                  :filteredTodoListLength="filteredTodoList.length"
                   :filteredTodoList="filteredTodoList"
                   @deleteTodo="deleteTodo"
                 />
@@ -474,12 +470,25 @@
 
 <style scoped>
 @import url("../assets/css/WorkingSchedule");
+/* .card__container_todo {
+  width: 45%;
+  display: flex;
+  left: 600px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card__item_todo {
+  min-width: 540px;
+  padding: 20px;
+  background-color: #f5deb3;
+  border-radius: 20px;
+  margin: 0px 0px 20px 0px;
+} */
 </style>
 
 <script>
 import WeekNavbar from "./WeekNavbar.vue";
 import DayNavbar from "./DayNavbar.vue";
-import TodoListForm from "./TodoListForm.vue";
 import TodoListCard from "./TodoListCard.vue";
 import CloseModalWindow from "./CloseModalWindow.vue";
 
@@ -487,7 +496,6 @@ export default {
   components: {
     WeekNavbar,
     DayNavbar,
-    TodoListForm,
     TodoListCard,
     CloseModalWindow,
   },
@@ -535,7 +543,6 @@ export default {
 
     addTodo(currentTodo) {
       this.todoList = [...this.todoList, currentTodo];
-		console.log('done');
     },
     setSubjectId(idx) {
       this.subjectIndex = idx;
@@ -552,7 +559,6 @@ export default {
           (t) => t.id == this.subjectIndex
         );
       }, 20);
-      // console.log(this.filteredTodoList);
     },
     returnTodos() {
       return this.todoList;
@@ -564,6 +570,7 @@ export default {
       }
     },
   },
+
   watch: {
     todoList() {
       localStorage.setItem("todo-list", JSON.stringify(this.todoList));

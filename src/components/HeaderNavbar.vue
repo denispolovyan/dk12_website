@@ -14,11 +14,8 @@
         </div>
         <div class="list">
           <div class="list__body">
-            <div class="item">schedule</div>
-            <div class="item">deadlines</div>
-            <div class="item">tasks</div>
-            <div class="item">news</div>
-            <div class="item">ads</div>
+            <!-- <div class="item">
+            </div> -->
           </div>
         </div>
       </div>
@@ -26,10 +23,31 @@
   </header>
 </template>
 
+<script>
+export default {
+//   data: () => {
+//     return {
+//       showBlackTheme: false,
+//     };
+//   },
+//   methods: {
+//     changeColorTheme(theme) {
+//       localStorage.setItem("colorTheme", JSON.stringify({ colorTheme: theme }));
+//     },
+//   },
+
+//   created() {
+//     setInterval(() => {
+//       const todoList = JSON.parse(localStorage.getItem("colorTheme"));
+//       this.showBlackTheme = todoList["colorTheme"] === "black" ? true : false;
+//     }, 100);
+//   },
+};
+</script>
+
 <style>
 header {
-  background-color: #5F9EA0;
-   background-color: #C0C0C0;
+  background-color: #c0c0c0;
   font-family: "Ubuntu", sans-serif;
 }
 .header__body {
@@ -51,10 +69,28 @@ header {
   justify-content: end;
   display: flex;
   align-items: center;
-  gap: 40px
+  gap: 40px;
 }
 .item {
   font-size: 16px;
   display: flex;
+}
+
+/* themes  */
+.theme {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.whiteTheme {
+  background-color: #fff;
+  margin: 0px 10px 0px 0px;
+}
+.blackTheme {
+  background-color: #000;
+}
+
+.blackThemeColor {
+  background-color: #000;
 }
 </style>

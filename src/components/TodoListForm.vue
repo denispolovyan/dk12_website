@@ -41,8 +41,14 @@
 <script>
 export default {
   props: {
-    index: String,
-    filteredTodoList: Number,
+    index: {
+      type: String,
+      required: false,
+    },
+    filteredTodoList: {
+      type: Array,
+      required: false,
+    },
   },
 
   data: () => {
@@ -57,7 +63,7 @@ export default {
       document.getElementById("taskTitle").value = "";
     },
     addTodo() {
-      if (this.filteredTodoList < 2) {
+      if (this.filteredTodoList.length < 4) {
         const title = document.getElementById("taskTitle").value;
         const body = document.getElementById("taskBody").value;
         if (title && body) {
@@ -80,8 +86,6 @@ export default {
 <style scoped>
 /* todo list  */
 .todo-list {
-  top: 100px;
-  left: 20px;
   position: absolute;
   background-color: #f5deb3;
   border-radius: 20px;
@@ -128,11 +132,5 @@ export default {
 .todo-list__button_reset:hover {
   transition-duration: 0.7s;
   background-color: #ffa07a;
-}
-.card__container_todo {
-  position: absolute;
-  left: 20px;
-  top: 500px;
-  width: 340px;
 }
 </style>
