@@ -9,10 +9,10 @@
           type="text"
           placeholder="Title of task"
           maxlength="20"
+          :class="{
+            redborder: showWarningMessage,
+          }"
         />
-      </div>
-      <div v-if="showWarningMessage" style="color: red">
-        <p>max 2 todo</p>
       </div>
       <div class="todo-list__text" @click="showWarningMessage = false">
         <textarea
@@ -20,6 +20,9 @@
           id="taskBody"
           placeholder="Body of task"
           maxlength="100"
+          :class="{
+            redborder: showWarningMessage,
+          }"
         ></textarea>
       </div>
       <button
@@ -63,7 +66,7 @@ export default {
       document.getElementById("taskTitle").value = "";
     },
     addTodo() {
-      if (this.filteredTodoList.length < 4) {
+      if (this.filteredTodoList.length < 5) {
         const title = document.getElementById("taskTitle").value;
         const body = document.getElementById("taskBody").value;
         if (title && body) {
@@ -86,8 +89,8 @@ export default {
 <style scoped>
 /* todo list  */
 .todo-list {
-	position: absolute;
-  background-color: #D3CFFF;
+  position: absolute;
+  background-color: #d3cfff;
   border-radius: 20px;
   border: 1px solid #000;
 }
@@ -123,7 +126,7 @@ export default {
   margin: 0px 20px 0px 0px;
 }
 .todo-list__button_reset {
-	background-color: #ec6077;
+  background-color: #ec6077;
 }
 .todo-list__button_submit:hover {
   transition-duration: 0.7s;
@@ -133,5 +136,8 @@ export default {
 .todo-list__button_reset:hover {
   transition-duration: 0.7s;
   background-color: #ffa07a;
+}
+.redborder {
+  border: 1px solid red;
 }
 </style>

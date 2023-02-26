@@ -1,12 +1,12 @@
 <template>
   <div>
-    <todo-list-form
-      @addTodo="addTodo"
-      :index="index"
-      :filteredTodoList="filteredTodoList"
-      class="todo-list__form"
-    />
     <div class="card__container_todo">
+      <todo-list-form
+        @addTodo="addTodo"
+        :index="index"
+        :filteredTodoList="filteredTodoList"
+        class="todo-list__form"
+      />
       <div
         class="card__item_todo"
         v-for="todo in filteredTodoList"
@@ -71,18 +71,17 @@ export default {
 <style scoped>
 /* todo-list form  */
 .todo-list__form {
-  position: absolute;
-  top: 40px;
-  left: 600px;
+  position: static;
+  height: 340px;
 }
 /* container  */
 .card__container_todo {
   position: absolute;
-  max-width: 1500px;
+  /* max-width: 1500px; */
   max-height: 400px;
   display: flex;
   left: 600px;
-  top: 420px;
+  top: 40px;
   bottom: 0px;
   gap: 20px;
   flex-wrap: wrap;
