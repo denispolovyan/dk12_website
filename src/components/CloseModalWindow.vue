@@ -26,7 +26,7 @@
   );
 }
 .data__close:hover {
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   background-color: #f3f3f3;
 }
 </style>

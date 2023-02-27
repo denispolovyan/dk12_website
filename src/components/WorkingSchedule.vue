@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="wrapper">
+    <header-navbar/>
     <div class="schedule">
       <week-navbar
         @switchToFirstWeek="(showFirstWeek = true), (showSecondWeek = false)"
@@ -13,7 +14,7 @@
       >
         <div class="cards__body" v-if="days.monday || clientWidth > 919">
           <div class="card__title">Понеділок</div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               @click="
                 scroollToTheTop(),
@@ -139,7 +140,7 @@
             </div>
             <div class="card__subtitle">10:25</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -226,7 +227,7 @@
             </div>
             <div class="card__subtitle">8:30</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -304,7 +305,7 @@
             </div>
             <div class="card__subtitle">12:20</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -346,7 +347,7 @@
         </div>
         <div class="cards__body" v-if="days.wednesday || clientWidth > 919">
           <div class="card__title">Середа</div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -424,7 +425,7 @@
             </div>
             <div class="card__subtitle">10:25</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -546,7 +547,7 @@
             </div>
             <div class="card__subtitle">8:30</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -589,14 +590,14 @@
             <div class="card__text"></div>
             <div class="card__subtitle">12:20</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div class="card__text"></div>
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
         <div class="cards__body" v-if="days.friday || clientWidth > 919">
           <div class="card__title">П'ятниця</div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div class="card__text"></div>
             <div class="card__subtitle">8:30</div>
           </div>
@@ -604,7 +605,7 @@
             <div class="card__text"></div>
             <div class="card__subtitle">10:25</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -691,7 +692,7 @@
       >
         <div class="cards__body" v-if="days.monday || clientWidth > 919">
           <div class="card__title">Понеділок</div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               @click="
                 scroollToTheTop(),
@@ -769,7 +770,7 @@
             </div>
             <div class="card__subtitle">10:25</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -868,7 +869,9 @@
               <div v-if="showModalWindow.fifth2" class="data">
                 <div class="data__block">
                   <div class="data__body">
-                    <p>Конструкторське проектування радіоелектронної апаратури</p>
+                    <p>
+                      Конструкторське проектування радіоелектронної апаратури
+                    </p>
                     <p>Губар В’ячеслав Григорович</p>
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
@@ -889,7 +892,7 @@
             </div>
             <div class="card__subtitle">8:30</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -932,14 +935,14 @@
             <div class="card__text"></div>
             <div class="card__subtitle">12:20</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div class="card__text"></div>
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
         <div class="cards__body" v-if="days.wednesday || clientWidth > 919">
           <div class="card__title">Середа</div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -1017,7 +1020,7 @@
             </div>
             <div class="card__subtitle">10:25</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -1116,7 +1119,9 @@
               <div v-if="showModalWindow.eleventh2" class="data">
                 <div class="data__block">
                   <div class="data__body">
-                    <p>Конструкторське проектування радіоелектронної апаратури</p>
+                    <p>
+                      Конструкторське проектування радіоелектронної апаратури
+                    </p>
                     <p>Адаменко І О</p>
                     <p><a href="">Посилання (лаб)</a></p>
                   </div>
@@ -1137,7 +1142,7 @@
             </div>
             <div class="card__subtitle">8:30</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -1180,14 +1185,14 @@
             <div class="card__text"></div>
             <div class="card__subtitle">12:20</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div class="card__text"></div>
             <div class="card__subtitle">14:15</div>
           </div>
         </div>
         <div class="cards__body" v-if="days.friday || clientWidth > 919">
           <div class="card__title">П'ятниця</div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -1265,7 +1270,7 @@
             </div>
             <div class="card__subtitle">10:25</div>
           </div>
-          <div class="card__column">
+          <div class="card__column card__column_color">
             <div
               class="card__text"
               @click="
@@ -1311,25 +1316,12 @@
         </div>
       </div>
     </div>
+    <footer-navbar />
   </div>
 </template>
 
 <style scoped>
 @import url("../assets/css/WorkingSchedule");
-/* .card__container_todo {
-  width: 45%;
-  display: flex;
-  left: 600px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.card__item_todo {
-  min-width: 540px;
-  padding: 20px;
-  background-color: #f5deb3;
-  border-radius: 20px;
-  margin: 0px 0px 20px 0px;
-} */
 </style>
 
 <script>
@@ -1337,6 +1329,8 @@ import WeekNavbar from "./WeekNavbar.vue";
 import DayNavbar from "./DayNavbar.vue";
 import TodoListCard from "./TodoListCard.vue";
 import CloseModalWindow from "./CloseModalWindow.vue";
+import HeaderNavbar from "./HeaderNavbar.vue";
+import FooterNavbar from "./FooterNavbar.vue";
 
 export default {
   components: {
@@ -1344,6 +1338,8 @@ export default {
     DayNavbar,
     TodoListCard,
     CloseModalWindow,
+    HeaderNavbar,
+    FooterNavbar,
   },
 
   data: () => {
@@ -1397,6 +1393,9 @@ export default {
   },
 
   methods: {
+	hello(){
+		console.log('hello');
+	},
     openModalWindow() {
       setTimeout(() => {
         this.showModalWindow[this.subjectIndex] = true;
@@ -1405,6 +1404,10 @@ export default {
     closeModalWindow() {
       this.showModalWindow[this.subjectIndex] = false;
     },
+    closeModalWindow2() {
+      this.showModalWindow[this.subjectIndex] = false;
+      console.log("success");
+    },
     getWindowSize() {
       this.clientWidth = window.screen.width;
     },
@@ -1412,7 +1415,7 @@ export default {
       document.body.style.overflow = "hidden";
     },
     addScroll() {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
     },
 
     addTodo(currentTodo) {

@@ -1,21 +1,19 @@
-<template>
-    <div class="container">
-      <div class="header__body">
-        <div class="logo">
-          <div class="logo__body">
-            <img
-              class="logo__img"
-              src="../assets/dk12logo.jpg"
-              alt="logo"
-              style="width: 60px"
-            />
-          </div>
+<template> 
+    <div class="header__body" >
+      <div class="logo">
+        <div class="logo__body">
+          <img
+            class="logo__img"
+            src="../assets/dk12logo.jpg"
+            alt="logo"
+            style="width: 60px"
+          />
         </div>
-        <div class="list">
-          <div class="list__body">
-            <div class="item">
-					<!-- Lorem ipsum dolor sit amet. -->
-            </div>
+      </div>
+      <div class="list">
+        <div class="list__body">
+          <div class="item">
+            <!-- Lorem ipsum dolor sit amet. -->
           </div>
         </div>
       </div>
@@ -27,10 +25,11 @@
   height: 100px;
   display: flex;
   align-items: center;
+  background-color: #615faa;
+  padding: 0px 20px;
 }
 .logo {
   flex: 1 1 200px;
-  
 }
 .logo__img {
   border-radius: 50%;

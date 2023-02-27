@@ -1,6 +1,5 @@
 <template>
-    <div class="container">
-      <div class="header__body">
+      <div class="footer__body">
         <div class="logo">
           <div class="logo__body">
             <img
@@ -19,14 +18,15 @@
           </div>
         </div>
       </div>
-    </div>
 </template>
 
 <style>
-.header__body {
+.footer__body {
   height: 100px;
   display: flex;
   align-items: center;
+    background-color: #615faa;
+  padding: 0px 20px;
 }
 .logo {
   flex: 1 1 200px;

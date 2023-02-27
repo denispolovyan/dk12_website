@@ -82,6 +82,19 @@ export default {
         this.showWarningMessage = true;
       }
     },
+    handleKeydown(e) {
+      if (e.key === "Enter") {
+        this.addTodo();
+      }
+    },
+  },
+
+  mounted() {
+    document.addEventListener("keydown", this.handleKeydown);
+  },
+
+  beforeUnmount() {
+    document.removeEventListener("keydown", this.handleKeydown);
   },
 };
 </script>
@@ -91,7 +104,7 @@ export default {
 .todo-list {
   position: absolute;
   background-color: #d3cfff;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 1px solid #000;
 }
 .todo-list__body {
@@ -103,14 +116,14 @@ export default {
 .todo-list__title input {
   font-size: 18px;
   padding: 0px 20px;
-  border-radius: 20px;
+  border-radius: 5px;
   width: 300px;
   height: 40px;
 }
 .todo-list__text textarea {
   font-size: 18px;
   padding: 20px 20px;
-  border-radius: 20px;
+  border-radius: 5px;
   width: 300px;
   height: 150px;
   resize: none;
@@ -129,12 +142,12 @@ export default {
   background-color: #ec6077;
 }
 .todo-list__button_submit:hover {
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   background-color: #98fb98;
   margin: 0px 20px 0px 0px;
 }
 .todo-list__button_reset:hover {
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   background-color: #ffa07a;
 }
 .redborder {

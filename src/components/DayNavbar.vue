@@ -60,10 +60,11 @@
   padding: 5px 10px;
   border: 1px solid #000;
   border-radius: 20px;
+  cursor: pointer;
 }
 .bgbtn {
   background-color: #d3d3d3;
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
 }
 </style>
 

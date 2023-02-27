@@ -1,5 +1,6 @@
 .schedule {
   font-family: "Ubuntu", sans-serif;
+  padding: 0px 20px;
   margin: 40px 0px;
   font-size: 18px;
 }
@@ -13,12 +14,13 @@
   flex-wrap: wrap;
   display: flex;
   gap: 20px;
+  height: 100%;
 }
 .cards__body {
   width: 430px;
   background: #f3f0ff;
   border: 2px solid #000;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .card__title {
@@ -30,14 +32,16 @@
 }
 .card__column {
   padding: 10px 10px 0px 10px;
-  margin: 0px 10px 40px 10px;
-  border-bottom: 1px dotted #000;
+  margin: 0px 0px 40px 0px;
+  border-bottom: 1px solid #000;
+  background-color: #f3f3f3;
 }
+.card__column_color {
+	background-color: #d1e4e7;
+ }
 .card__column:hover {
-  transition-duration: 0.6s;
-  /* background-color: #ccc5fc; */
+  transition-duration: 0.5s;
     background-color: #d3cfff;
-  border-radius: 20px 20px 0px 0px;
 }
 .card__text {
   height: 150px;
@@ -63,9 +67,9 @@
 }
 .data__body {
 	text-align: center;
-  padding: 20px;
-  width: 450px;
-  border-radius: 20px;
+  padding: 10px;
+  width: 350px;
+  border-radius: 5px;
   display: inline-block;
   background-color: #f3f0ff;
   border: 1px solid #000;
@@ -102,7 +106,7 @@
 /* dynamic classes */
 .bgbtn {
   background-color: #d3d3d3;
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
 }
 .jccenter {
   justify-content: center;

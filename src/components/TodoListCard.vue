@@ -77,7 +77,6 @@ export default {
 /* container  */
 .card__container_todo {
   position: absolute;
-  /* max-width: 1500px; */
   max-height: 400px;
   display: flex;
   left: 600px;
@@ -90,14 +89,14 @@ export default {
   width: 340px;
   height: 340px;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: #d3cfff;
   border: 1px solid #000;
 }
 .todo-list__button {
   font-size: 18px;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 20px 0px 0px 0px;
   background-color: #ff8155;
 }
@@ -106,12 +105,12 @@ export default {
   margin: 0px 20px 0px 0px;
 }
 .todo-list__button_submit:hover {
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   background-color: #98fb98;
   margin: 0px 20px 0px 0px;
 }
 .todo-list__button_reset:hover {
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   background-color: #ffa07a;
 }
 
@@ -119,12 +118,12 @@ export default {
   padding: 10px 15px;
   background-color: #fff;
   margin: 0px 0px 40px 0px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .card__text_todo {
   background-color: #fff;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 5px;
   line-height: 20px;
   height: 150px;
 }

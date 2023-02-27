@@ -32,10 +32,11 @@
   font-size: 22px;
   border-radius: 20px;
   padding: 10px 20px;
+  cursor: pointer;
 }
 .bgbtn {
   background-color: #d3cfff;
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
 }
 </style>
 
@@ -51,12 +52,12 @@ export default {
     switchToFirstWeek() {
       this.showFirstWeek = true;
       this.showSecondWeek = false;
-		this.$emit("switchToFirstWeek");
+      this.$emit("switchToFirstWeek");
     },
     switchToSecondWeek() {
       this.showFirstWeek = false;
       this.showSecondWeek = true;
-		this.$emit("switchToSecondWeek");
+      this.$emit("switchToSecondWeek");
     },
   },
 };
