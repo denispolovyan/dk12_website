@@ -79,7 +79,7 @@ export default {
   position: absolute;
   max-height: 400px;
   display: flex;
-  left: 600px;
+  left: 400px;
   top: 40px;
   bottom: 0px;
   gap: 20px;

@@ -1,7 +1,7 @@
 <template> 
     <div class="header__body" >
       <div class="logo">
-        <div class="logo__body">
+        <div class="logo__body " @click="$emit('openMainMenu')">
           <img
             class="logo__img"
             src="../assets/dk12logo.jpg"
@@ -19,6 +19,18 @@
       </div>
     </div>
 </template>
+
+<script>
+
+export default {
+	// methods: {
+	// 	openMainMenu() {
+	// 		console.log('main menu');
+	// 	}
+	// }
+}
+</script>
+
 
 <style>
 .header__body {

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <header-navbar/>
+    <header-navbar @openMainMenu="closeModalWindow(),addScroll()"/>
     <div class="schedule">
       <week-navbar
         @switchToFirstWeek="(showFirstWeek = true), (showSecondWeek = false)"
@@ -468,7 +468,7 @@
             <div
               class="card__text"
               @click="
-                scroollToTheTop(),
+                scrollToTheTop(),
                   openModalWindow(),
                   removeScroll(),
                   setSubjectId('eleventh'),
