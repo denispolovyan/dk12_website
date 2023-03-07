@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <header-navbar />
+    <header-navbar class="header"/>
     <div class="schedule">
       <week-navbar
         @switchToFirstWeek="(showFirstWeek = true), (showSecondWeek = false)"
@@ -1264,7 +1264,7 @@
         </div>
       </div>
     </div>
-    <footer-navbar />
+    <footer-navbar class="footer"/>
   </div>
 </template>
 
@@ -1423,6 +1423,12 @@ export default {
   height: 100%;
 }
 .schedule{
+	flex: 1 0 auto;
+}
+.header{
+	flex: 1 0 auto;
+}
+.footer{
 	flex: 1 0 auto;
 }
 </style>

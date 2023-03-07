@@ -22,7 +22,7 @@
 
 <style>
 .footer__body {
-  min-height: 75px;
+  height: 100px;
   display: flex;
   align-items: center;
     background-color: #615faa;
