@@ -3,5 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true
 })
 module.exports = {
-	transpileDependencies: true
+	publicPath: process.env.NODE_ENV === 'production'
+	  ? '/dk12_website/'
+	  : '/'
  }

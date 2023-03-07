@@ -1,7 +1,7 @@
 <template>
       <div class="footer__body">
         <div class="logo">
-          <div class="logo__body">
+          <div class="logo__body" @click.stop="$emit('openMainMenu')">
             <img
               class="logo__img"
               src="../assets/dk12logo.jpg"
@@ -22,7 +22,7 @@
 
 <style>
 .footer__body {
-  height: 100px;
+  min-height: 75px;
   display: flex;
   align-items: center;
     background-color: #615faa;

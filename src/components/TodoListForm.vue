@@ -33,7 +33,7 @@
       </button>
       <button
         class="todo-list__button todo-list__button_reset"
-        @click="resetForm"
+        @click="resetForm(), (showWarningMessage = false)"
       >
         Reset
       </button>
@@ -57,6 +57,7 @@ export default {
   data: () => {
     return {
       showWarningMessage: false,
+      unfocusTextarea: false,
     };
   },
 
@@ -84,6 +85,7 @@ export default {
     },
     handleKeydown(e) {
       if (e.key === "Enter") {
+        e.preventDefault();
         this.addTodo();
       }
     },
@@ -131,7 +133,7 @@ export default {
 .todo-list__button {
   font-size: 18px;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 20px 0px 0px 0px;
 }
 .todo-list__button_submit {
@@ -139,7 +141,7 @@ export default {
   margin: 0px 20px 0px 0px;
 }
 .todo-list__button_reset {
-  background-color: #ec6077;
+  background-color: #ffa07a;
 }
 .todo-list__button_submit:hover {
   transition-duration: 0.5s;
@@ -148,7 +150,7 @@ export default {
 }
 .todo-list__button_reset:hover {
   transition-duration: 0.5s;
-  background-color: #ffa07a;
+  background-color: #dc143c;
 }
 .redborder {
   border: 1px solid red;

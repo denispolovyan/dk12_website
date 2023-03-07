@@ -26,10 +26,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 0px 40px 0px;
+  margin: 0px 0px 20px 0px;
 }
 .article__button {
-  font-size: 22px;
+  font-size: 18px;
   border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
@@ -37,6 +37,11 @@
 .bgbtn {
   background-color: #d3cfff;
   transition-duration: 0.5s;
+}
+@media (min-width: 2000px) {
+  .article__button {
+    font-size: 22px;
+  }
 }
 </style>
 

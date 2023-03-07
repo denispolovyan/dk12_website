@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <header-navbar @openMainMenu="closeModalWindow(),addScroll()"/>
+    <header-navbar />
     <div class="schedule">
       <week-navbar
         @switchToFirstWeek="(showFirstWeek = true), (showSecondWeek = false)"
@@ -38,6 +38,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.first" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Економічна психологія</p>
@@ -61,11 +64,7 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.first"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -103,6 +102,9 @@
                 <span class="card__activity card__activity_lecture">лек </span>
               </p>
               <div v-if="showModalWindow.second" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Політична участь та громадянська відповідальність</p>
@@ -124,11 +126,7 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.second"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -156,6 +154,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.third" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Соціальна психологія</p>
@@ -163,11 +164,7 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.third"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -202,6 +199,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.fourth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>
@@ -211,11 +211,7 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fourth"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -243,6 +239,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.fifth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Електродинаміка та поширення радіохвиль</p>
@@ -250,11 +249,7 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fifth"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -282,6 +277,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.sixth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Методи обробки даних в інформатиці</p>
@@ -289,11 +287,7 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.sixth"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -321,6 +315,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.seventh" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Методи обробки даних в інформатиці</p>
@@ -328,11 +325,7 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.seventh"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -363,6 +356,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.eighth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Схемотехніка</p>
@@ -370,11 +366,7 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.eighth"
-                />
+
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -402,6 +394,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.ninth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Вступ до філософії</p>
@@ -409,11 +404,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.ninth"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -441,6 +431,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.tenth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Функціонально-логічне проектування</p>
@@ -448,11 +441,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.tenth"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -468,7 +456,7 @@
             <div
               class="card__text"
               @click="
-                scrollToTheTop(),
+                scroollToTheTop(),
                   openModalWindow(),
                   removeScroll(),
                   setSubjectId('eleventh'),
@@ -480,6 +468,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.eleventh" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Електродинаміка та поширення радіохвиль</p>
@@ -487,11 +478,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.eleventh"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -522,6 +508,9 @@
                 <span class="card__activity card__activity_lab">лаб</span>
               </p>
               <div v-if="showModalWindow.twelfth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>
@@ -531,11 +520,6 @@
                     <p><a href="">Посилання (лаб)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.twelfth"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -563,6 +547,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.thirteenth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Практичний курс іноземної мови. Частина 1</p>
@@ -570,11 +557,6 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.thirteenth"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -621,6 +603,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.fourteenth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Електродинаміка та поширення радіохвиль -1</p>
@@ -628,11 +613,6 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fourteenth"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -660,6 +640,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.fifteenth" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Вступ до філософії</p>
@@ -667,11 +650,6 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fifteenth"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   :index="subjectIndex"
@@ -708,6 +686,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.first2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Психологія конфлікту</p>
@@ -715,11 +696,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.first2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -747,6 +723,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.second2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Політична участь</p>
@@ -754,11 +733,6 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.second2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -786,6 +760,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.third2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Соціальна психологія</p>
@@ -793,11 +770,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.third2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -825,6 +797,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.fourth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Розумні міста</p>
@@ -832,11 +807,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fourth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -867,6 +837,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.fifth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>
@@ -876,11 +849,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fifth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -908,6 +876,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.sixth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Електродинаміка та поширення радіохвиль</p>
@@ -915,11 +886,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.sixth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -958,6 +924,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.seventh2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Схемотехніка</p>
@@ -965,11 +934,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.seventh2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -997,6 +961,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.eighth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Функціонально-логічне проектування</p>
@@ -1004,11 +971,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.eighth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1036,6 +998,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.ninth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Функціонально-логічне проектування</p>
@@ -1043,11 +1008,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.ninth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1075,6 +1035,9 @@
                 <span class="card__activity card__activity_lecture">лек</span>
               </p>
               <div v-if="showModalWindow.tenth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Електродинаміка та поширення радіохвиль</p>
@@ -1082,11 +1045,6 @@
                     <p><a href="">Посилання (лек)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.tenth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1117,6 +1075,9 @@
                 <span class="card__activity card__activity_lab">лаб</span>
               </p>
               <div v-if="showModalWindow.eleventh2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>
@@ -1126,11 +1087,6 @@
                     <p><a href="">Посилання (лаб)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.eleventh2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1158,6 +1114,9 @@
                 <span class="card__activity card__activity_practice">прак</span>
               </p>
               <div v-if="showModalWindow.twelfth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Практичний курс іноземної мови</p>
@@ -1165,11 +1124,6 @@
                     <p><a href="">Посилання (прак)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.twelfth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1205,21 +1159,19 @@
             >
               <p>
                 Схемотехніка
-                <span class="card__activity card__activity_lecture">лек</span>
+                <span class="card__activity card__activity_lab">лаб</span>
               </p>
               <div v-if="showModalWindow.thirteenth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Схемотехніка</p>
-                    <p>доц. Короткий Є. В.</p>
-                    <p><a href="">Посилання (лек)</a></p>
+                    <p>Короткий Є. В.</p>
+                    <p><a href="">Посилання (лаб)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.thirteenth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1247,6 +1199,9 @@
                 <span class="card__activity card__activity_lab">лаб</span>
               </p>
               <div v-if="showModalWindow.fourteenth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Функціонально-логічне проектування</p>
@@ -1254,11 +1209,6 @@
                     <p><a href="">Посилання (лаб)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fourteenth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1286,6 +1236,9 @@
                 <span class="card__activity card__activity_lab">лаб</span>
               </p>
               <div v-if="showModalWindow.fifteenth2" class="data">
+                <header-navbar
+                  @openMainMenu="closeModalWindow(), addScroll()"
+                />
                 <div class="data__block">
                   <div class="data__body">
                     <p>Електродинаміка та поширення радіохвиль</p>
@@ -1293,11 +1246,6 @@
                     <p><a href="">Посилання (лаб)</a></p>
                   </div>
                 </div>
-                <close-modal-window
-                  @click="addScroll"
-                  @click.stop="closeModalWindow"
-                  v-if="showModalWindow.fifteenth2"
-                />
                 <todo-list-card
                   @addTodo="addTodo"
                   @deleteTodo="deleteTodo"
@@ -1328,7 +1276,6 @@
 import WeekNavbar from "./WeekNavbar.vue";
 import DayNavbar from "./DayNavbar.vue";
 import TodoListCard from "./TodoListCard.vue";
-import CloseModalWindow from "./CloseModalWindow.vue";
 import HeaderNavbar from "./HeaderNavbar.vue";
 import FooterNavbar from "./FooterNavbar.vue";
 
@@ -1337,7 +1284,6 @@ export default {
     WeekNavbar,
     DayNavbar,
     TodoListCard,
-    CloseModalWindow,
     HeaderNavbar,
     FooterNavbar,
   },
@@ -1393,20 +1339,13 @@ export default {
   },
 
   methods: {
-	hello(){
-		console.log('hello');
-	},
     openModalWindow() {
       setTimeout(() => {
         this.showModalWindow[this.subjectIndex] = true;
-      }, 10);
+      }, 50);
     },
     closeModalWindow() {
       this.showModalWindow[this.subjectIndex] = false;
-    },
-    closeModalWindow2() {
-      this.showModalWindow[this.subjectIndex] = false;
-      console.log("success");
     },
     getWindowSize() {
       this.clientWidth = window.screen.width;
@@ -1417,7 +1356,6 @@ export default {
     addScroll() {
       document.body.style.overflowY = "scroll";
     },
-
     addTodo(currentTodo) {
       this.todoList = [...this.todoList, currentTodo];
     },
@@ -1477,3 +1415,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.schedule{
+	flex: 1 0 auto;
+}
+</style>

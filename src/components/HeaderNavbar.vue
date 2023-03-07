@@ -1,7 +1,7 @@
 <template> 
     <div class="header__body" >
       <div class="logo">
-        <div class="logo__body " @click="$emit('openMainMenu')">
+        <div class="logo__body " @click.stop="$emit('openMainMenu')">
           <img
             class="logo__img"
             src="../assets/dk12logo.jpg"
@@ -22,19 +22,12 @@
 
 <script>
 
-export default {
-	// methods: {
-	// 	openMainMenu() {
-	// 		console.log('main menu');
-	// 	}
-	// }
-}
 </script>
 
 
 <style>
 .header__body {
-  height: 100px;
+  min-height: 75px;
   display: flex;
   align-items: center;
   background-color: #615faa;
