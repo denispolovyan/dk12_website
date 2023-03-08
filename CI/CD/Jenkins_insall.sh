@@ -2,16 +2,17 @@
 
 # Оновити список пакетів та встановити необхідні пакети
 sudo apt-get update
-sudo apt-get install -y openjdk-8-jdk wget
+sudo apt-get install -y openjdk-11-jre
 
 # Додати ключ для Jenkins репозиторію
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io.key | sudo tee \  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 
 # Додати репозиторій до списку джерел пакетів
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
 # Оновити список пакетів та встановити Jenkins
-sudo apt-get update
+sudo apt update
 sudo apt-get install -y jenkins
 
 # Запустити Jenkins
