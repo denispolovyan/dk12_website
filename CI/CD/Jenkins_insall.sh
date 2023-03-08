@@ -18,5 +18,5 @@ sudo apt-get install -y jenkins
 # Запустити Jenkins
 sudo systemctl start jenkins
 
-# Вивести статус Jenkins
-sudo systemctl status jenkins
+# Вивести пароль розблокування 
+cat /var/lib/jenkins/secrets/initialAdminPassword
