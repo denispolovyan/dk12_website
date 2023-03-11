@@ -10,7 +10,7 @@ sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubun
 
 # Оновлюємось і встановлюємо DOCKER
 sudo apt-get update
-sudo apt-get install docker-ce
+sudo apt-get install docker-ce -y
 
 # Перевіряємо 
 sudo docker --version
