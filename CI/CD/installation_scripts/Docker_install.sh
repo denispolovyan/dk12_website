@@ -1,0 +1,17 @@
+#!/bin/bash
+sudo apt update
+
+# Оновити список пакетів та встановити необхідні пакети
+sudo apt install apt-transport-https
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Додати репозиторій до списку джерел пакетів
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# Оновлюємось і встановлюємо DOCKER
+sudo apt update
+sudo apt install docker-ce
+
+# Перевіряємо 
+sudo docker --version
+sudo usermod -aG docker ubuntu
