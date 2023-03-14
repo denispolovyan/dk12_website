@@ -6,6 +6,7 @@ sudo apt-get install -y npm
 
 npm i @vue/cli
 npm i @vue/cli-service
+npm i @vue/cli-plugin-babel
 
 cd /home/ubuntu/dk12_website/ 
 
