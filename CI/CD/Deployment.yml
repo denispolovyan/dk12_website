@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: dk12Website
+spec:
+   replicas: 2
+   selector:      # tells the controller which pods to watch/belong to
+    matchLabels:
+     app: dk12Website
+   template:
+      metadata:
+        labels:
+          app: dk12Website
+      spec:
+       containers:
+        - name: dk12Website
+          image: vladbaroko/dk12_pipeline
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
