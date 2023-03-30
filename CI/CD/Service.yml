@@ -11,4 +11,6 @@ spec:
       nodePort: 31200
   selector:
     app: dk12website
+  externalIPs:
+   - 130.61.110.179
   type: LoadBalancer
