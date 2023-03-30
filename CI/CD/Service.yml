@@ -6,13 +6,9 @@ metadata:
     app: dk12Website
 spec:
   ports:
-    - port: 8080
-      targetPort: 80
+    - port: 80
+      targetPort: 8080
       nodePort: 31200
   selector:
     app: dk12website
-  externalIPs:
-   - 130.61.110.179
   type: LoadBalancer
-
-
