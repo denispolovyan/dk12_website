@@ -1,0 +1,66 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clone Git repository') {
+            steps {
+                git branch: 'master', credentialsId: 'git-creds', url: 'https://github.com/denispolovyan/dk12_website.git'
+            }
+            
+        }    
+        
+        stage('Copy insallation scripts to Ansible server and run it'){
+            steps{
+               sshagent(['ssh_ansible']) {
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154'
+                   sh 'scp -r /var/lib/jenkins/workspace/dk12_pipeline/CI/CD/installation_scripts/* ubuntu@130.61.141.154:/home/ubuntu/'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 sudo chmod 777 Ansible_install.sh'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 sudo chmod 777 Docker_install.sh'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 ./Ansible_install.sh'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 ./Docker_install.sh'
+               }
+               }
+            }
+            
+        stage('Docker build image'){
+            steps{
+               sshagent(['ssh_ansible']) {
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154'
+                   sh 'scp -r /var/lib/jenkins/workspace/dk12_pipeline/* ubuntu@130.61.141.154:/home/ubuntu/dk12_website/'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 sudo chmod 777 Npm_prod.sh'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 ./Npm_prod.sh'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 docker build -t vladbaroko/$JOB_NAME:v1.$BUILD_ID .'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 docker build -t vladbaroko/$JOB_NAME:latest .'
+               }
+               }
+            }
+        stage('DockerHub push'){
+            steps{
+                sshagent(['ssh_ansible']) {
+                    withCredentials([string(credentialsId: 'DHub_pass', variable: 'DHub_pass')]) {
+                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 docker login -u vladbaroko -p ${DHub_pass}'
+                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 docker image push vladbaroko/$JOB_NAME:v1.$BUILD_ID '
+                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 docker image push vladbaroko/$JOB_NAME:latest '
+                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 docker image prune -a -f '
+                    }
+                }
+            }
+        }
+         stage('Sending files to K8S '){
+             steps{
+                 sshagent(['ssh_k8s']) {
+                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.110.179'
+                     sh 'scp -r /var/lib/jenkins/workspace/dk12_pipeline/CI/CD/* ubuntu@130.61.110.179:/home/ubuntu/'
+             }
+         }
+        }
+         stage('K8S Deployment'){
+            steps{
+                sshagent(['ssh_ansible']) {
+                         sh 'scp -r /var/lib/jenkins/workspace/dk12_pipeline/CI/CD/* ubuntu@130.61.141.154:/home/ubuntu/'
+                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@130.61.141.154 ansible-playbook ansible.yml'
+                }
+            }
+        }
+      }
+}  
